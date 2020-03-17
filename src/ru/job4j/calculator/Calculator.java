@@ -15,5 +15,9 @@ public class Calculator {
         int four = 4;
         int fourTimeTwo = four * two;
         System.out.println(fourTimeTwo);
+        int size = 10;
+        size = 100;
+        size -= 5;
+        System.out.println(size);
     }
 }
