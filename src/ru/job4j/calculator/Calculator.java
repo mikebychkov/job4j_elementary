@@ -1,5 +1,9 @@
 package ru.job4j.calculator;
 
+/**
+ * Класс Calculator предназначен для тестирования арифметических операций
+ * @author Mike.Bychkov
+ */
 public class Calculator {
     public static void main(String[] args) {
         int one = 1;
