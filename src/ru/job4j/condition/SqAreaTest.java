@@ -3,12 +3,12 @@ package ru.job4j.condition;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class PointTest {
+public class SqAreaTest {
 
     @Test
-    public void distance() {
-        double result = Point.distance(3, 3, 5, 7);
-        double expected = 4.47;
+    public void square() {
+        double result = SqArea.square(6, 2);
+        double expected = 2;
         Assert.assertEquals(expected, result, 0.01);
     }
 }
