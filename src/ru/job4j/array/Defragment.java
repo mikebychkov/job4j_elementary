@@ -1,7 +1,7 @@
 package ru.job4j.array;
 
 public class Defragment {
-    public static String[] compress(String[] array) {
+    public static String[] compressold(String[] array) {
         for (int index = 0; index < array.length; index++) {
             if (array[index] == null) {
                 for (int x = index + 1; x < array.length; x++) {
@@ -9,6 +9,23 @@ public class Defragment {
                         swap(array, index, x);
                         break;
                     }
+                }
+            }
+            System.out.print(array[index] + " ");
+        }
+        return array;
+    }
+
+    public static String[] compress(String[] array) {
+        for (int index = 0; index < array.length; index++) {
+            if (array[index] == null) {
+                int x = index;
+                while (x < array.length) {
+                    if (array[x] != null) {
+                        swap(array, index, x);
+                        break;
+                    }
+                    x++;
                 }
             }
             System.out.print(array[index] + " ");
