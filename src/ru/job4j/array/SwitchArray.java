@@ -3,15 +3,9 @@ package ru.job4j.array;
 public class SwitchArray {
 
     public static int[] swap(int[] array, int source, int dest) {
-        source = Math.min(source, array.length - 1);
-        source = Math.max(source, 0);
-        dest = Math.min(dest, array.length - 1);
-        dest = Math.max(dest, 0);
-        if (source != dest) {
-            int temp = array[source];
-            array[source] = array[dest];
-            array[dest] = temp;
-        }
+        int temp = array[source];
+        array[source] = array[dest];
+        array[dest] = temp;
         return array;
     }
 

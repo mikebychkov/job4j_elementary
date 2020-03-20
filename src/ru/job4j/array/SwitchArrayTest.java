@@ -20,20 +20,4 @@ public class SwitchArrayTest {
         int[] rsl = SwitchArray.swap(input, 1, 2);
         assertThat(rsl, is(expect));
     }
-
-    @Test
-    public void whenSwap2to10() {
-        int[] input = {1, 2, 3, 4};
-        int[] expect = {1, 2, 4, 3};
-        int[] rsl = SwitchArray.swap(input, 2, 10);
-        assertThat(rsl, is(expect));
-    }
-
-    @Test
-    public void whenSwap8to10() {
-        int[] input = {1, 2, 3, 4};
-        int[] expect = {1, 2, 3, 4};
-        int[] rsl = SwitchArray.swap(input, 8, 10);
-        assertThat(rsl, is(expect));
-    }
 }
