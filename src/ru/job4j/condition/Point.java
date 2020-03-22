@@ -4,10 +4,17 @@ public class Point {
 
     private int x;
     private int y;
+    private int z;
 
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
+    }
+
+    public Point(int x, int y, int z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
     }
 
     public int getX() {
@@ -36,6 +43,12 @@ public class Point {
         return rsl;
     }
 
+    public double distance3d(Point that) {
+        double rsl = Math.pow(this.x - that.x, 2) + Math.pow(this.y - that.y, 2) + Math.pow(this.z - that.z, 2);
+        rsl = Math.sqrt(rsl);
+        return rsl;
+    }
+
     public static void main(String[] args) {
         double result = Point.distance(1, 2, 2, 1);
         System.out.println("result (1, 2) to (2, 1) " + result);
@@ -48,6 +61,8 @@ public class Point {
         Point p2 = new Point(2, 1);
         Point p3 = new Point(3, 3);
         Point p4 = new Point(5, 7);
+        Point p5 = new Point(1, 2, 3);
+        Point p6 = new Point(2, 1, 6);
 
         // oop 1
 
@@ -64,5 +79,10 @@ public class Point {
 
         result = p4.distance(p3);
         System.out.println("oop result (3, 3) to (5, 7) " + result);
+
+        // oop 3
+
+        result = p6.distance3d(p5);
+        System.out.println("oop result (1, 2, 3) to (2, 1, 6) " + result);
     }
 }
