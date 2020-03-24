@@ -45,6 +45,14 @@ public class Tracker {
         return Arrays.copyOf(resultItems, resultSize);
     }
 
+    public Item[] findAllDirty() {
+        Item[] resultItems = new Item[this.position];
+        for (int i = 0; i < this.position; i++) {
+            resultItems[i] = this.items[i];
+        }
+        return resultItems;
+    }
+
     public Item[] findByName(String key) {
         Item[] resultItems = new Item[this.position];
         int resultSize = 0;
@@ -63,7 +71,7 @@ public class Tracker {
 
     private int indexOf(String id) {
         for (int index = 0; index < position; index++) {
-            if (items[index].getId().equals(id)) {
+            if (items[index] != null && items[index].getId().equals(id)) {
                 return index;
             }
         }
@@ -73,6 +81,17 @@ public class Tracker {
     public boolean replace(String id, Item item) {
         int index = indexOf(id);
         if (index != -1) items[index].setName(item.getName());
+        return index != -1;
+    }
+
+    public boolean delete(String id) {
+        int index = indexOf(id);
+        if (index != -1) {
+            this.items[index] = null;
+            System.arraycopy(this.items, index + 1, this.items, index, this.position - index - 1);
+            this.items[this.position - 1] = null;
+            this.position--;
+        }
         return index != -1;
     }
 }
