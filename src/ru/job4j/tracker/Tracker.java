@@ -35,6 +35,7 @@ public class Tracker {
     }
 
     public Item[] findAll() {
+        /*
         Item[] resultItems = new Item[this.position];
         int resultSize = 0;
         for (int i = 0; i < this.position; i++) {
@@ -43,6 +44,8 @@ public class Tracker {
             }
         }
         return Arrays.copyOf(resultItems, resultSize);
+        */
+        return Arrays.copyOf(this.items, this.position);
     }
 
     public Item[] findAllDirty() {
@@ -57,7 +60,8 @@ public class Tracker {
         Item[] resultItems = new Item[this.position];
         int resultSize = 0;
         for (int i = 0; i < this.position; i++) {
-            if (this.items[i] != null && this.items[i].getName().equals(key)) {
+            //if (this.items[i] != null && this.items[i].getName().equals(key)) {
+            if (this.items[i].getName().equals(key)) {
                 resultItems[resultSize++] = this.items[i];
             }
         }
@@ -71,7 +75,8 @@ public class Tracker {
 
     private int indexOf(String id) {
         for (int index = 0; index < position; index++) {
-            if (items[index] != null && items[index].getId().equals(id)) {
+            //if (items[index] != null && items[index].getId().equals(id)) {
+            if (items[index].getId().equals(id)) {
                 return index;
             }
         }
