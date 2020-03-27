@@ -48,14 +48,6 @@ public class Tracker {
         return Arrays.copyOf(this.items, this.position);
     }
 
-    public Item[] findAllDirty() {
-        Item[] resultItems = new Item[this.position];
-        for (int i = 0; i < this.position; i++) {
-            resultItems[i] = this.items[i];
-        }
-        return resultItems;
-    }
-
     public Item[] findByName(String key) {
         Item[] resultItems = new Item[this.position];
         int resultSize = 0;

@@ -79,7 +79,6 @@ public class StartUI {
         System.out.println("Select:");
     }
 
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Tracker tracker = new Tracker();

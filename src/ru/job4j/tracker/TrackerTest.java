@@ -89,6 +89,6 @@ public class TrackerTest {
 
         Item[] expect = new Item[] {bug1, bug2, bug4};
 
-        assertThat(tracker.findAllDirty(), is(expect));
+        assertThat(tracker.findAll(), is(expect));
     }
 }
