@@ -19,20 +19,6 @@ public class StartUI {
         }
     }
 
-    public static void editItem(Input scanner, Tracker tracker) {
-        System.out.println("==== Edit an Item ====");
-        String id = scanner.askStr("Enter ID:");
-        Item res = tracker.findById(id);
-        if (res != null) {
-            res.setName(
-                    scanner.askStr("Enter name:")
-            );
-            System.out.println("Successfully edited!");
-        } else {
-            System.out.println("Wrong ID!");
-        }
-    }
-
     public static void replaceItem(Input scanner, Tracker tracker) {
         System.out.println("==== Replace an Item ====");
         String id = scanner.askStr("Enter ID:");
@@ -88,16 +74,14 @@ public class StartUI {
             } else if (select == 1) {
                 StartUI.showAllItems(scanner, tracker);
             } else if (select == 2) {
-                StartUI.editItem(scanner, tracker);
-            } else if (select == 3) {
                 StartUI.deleteItem(scanner, tracker);
-            } else if (select == 4) {
+            } else if (select == 3) {
                 StartUI.findItemByID(scanner, tracker);
-            } else if (select == 5) {
+            } else if (select == 4) {
                 StartUI.findItemByName(scanner, tracker);
-            } else if (select == 6) {
+            } else if (select == 5) {
                 StartUI.replaceItem(scanner, tracker);
-            } else if (select == 7) {
+            } else if (select == 6) {
                 run = false;
             }
         }
@@ -108,12 +92,11 @@ public class StartUI {
         System.out.println("Menu:");
         System.out.println("0. Add new Item");
         System.out.println("1. Show all items");
-        System.out.println("2. Edit item");
-        System.out.println("3. Delete item");
-        System.out.println("4. Find item by Id");
-        System.out.println("5. Find items by name");
-        System.out.println("6. Replace item");
-        System.out.println("7. Exit Program");
+        System.out.println("2. Delete item");
+        System.out.println("3. Find item by Id");
+        System.out.println("4. Find items by name");
+        System.out.println("5. Replace item");
+        System.out.println("6. Exit Program");
     }
 
     public static void main(String[] args) {
