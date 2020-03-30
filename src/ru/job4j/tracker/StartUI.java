@@ -27,8 +27,11 @@ public class StartUI {
             Item newItem = new Item(
                     scanner.askStr("Enter name:")
             );
-            tracker.replace(id, newItem);
-            System.out.println("Successfully replaced!");
+            if (tracker.replace(id, newItem)) {
+                System.out.println("Successfully replaced!");
+            } else {
+                System.out.println("Something went wrong!");
+            }
         } else {
             System.out.println("Wrong ID!");
         }
