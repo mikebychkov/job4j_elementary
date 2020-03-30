@@ -22,18 +22,13 @@ public class StartUI {
     public static void replaceItem(Input scanner, Tracker tracker) {
         System.out.println("==== Replace an Item ====");
         String id = scanner.askStr("Enter ID:");
-        Item res = tracker.findById(id);
-        if (res != null) {
-            Item newItem = new Item(
-                    scanner.askStr("Enter name:")
-            );
-            if (tracker.replace(id, newItem)) {
-                System.out.println("Successfully replaced!");
-            } else {
-                System.out.println("Something went wrong!");
-            }
+        Item newItem = new Item(
+                scanner.askStr("Enter name:")
+        );
+        if (tracker.replace(id, newItem)) {
+            System.out.println("Successfully replaced!");
         } else {
-            System.out.println("Wrong ID!");
+            System.out.println("Something went wrong!");
         }
     }
 
