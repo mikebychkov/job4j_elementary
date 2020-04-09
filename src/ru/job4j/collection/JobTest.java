@@ -21,6 +21,16 @@ public class JobTest {
     }
 
     @Test
+    public void whenCompatorByNameAndPrority2() {
+        Comparator<Job> cmpNamePriority = new JobDescByName().thenComparing(new JobDescByPriority());
+        int rsl = cmpNamePriority.compare(
+                new Job("Impl task", 0),
+                new Job("Impl task", 1)
+        );
+        assertThat(rsl, greaterThan(0));
+    }
+
+    @Test
     public void byNameAsc() {
         Job j1 = new Job("Job #1", 2);
         Job j2 = new Job("A super job", 1);
