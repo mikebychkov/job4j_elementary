@@ -6,8 +6,8 @@ public class LexSort implements Comparator<String> {
 
     @Override
     public int compare(String left, String right) {
-        String[] la = left.replace(".", ",").split(",");
-        String[] ra = right.replace(".", ",").split(",");
+        String[] la = left.split("\\.");
+        String[] ra = right.split("\\.");
         int len = Math.max(la.length, ra.length);
         int rsl = 0;
         for (int i = 0; i < len; i++) {
