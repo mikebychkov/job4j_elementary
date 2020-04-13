@@ -28,16 +28,16 @@ public class BankService {
         }
         */
         /*
-        LinkedList<User> rsl = this.users.keySet().stream().filter(
-                usr -> usr.getPassport().equals(passport)
-        ).collect(Collectors.toCollection(LinkedList::new));
-        return rsl.getFirst();
-        */
         List<User> rsl = this.users.keySet().stream().filter(
                 usr -> usr.getPassport().equals(passport)
         ).collect(Collectors.toList());
         for (User usr : rsl) return usr;
         return null;
+        */
+        LinkedList<User> rsl = this.users.keySet().stream().filter(
+                usr -> usr.getPassport().equals(passport)
+        ).collect(Collectors.toCollection(LinkedList::new));
+        return rsl.peekFirst();
     }
 
     public Account findByRequisite(String passport, String requisite) {
@@ -49,16 +49,16 @@ public class BankService {
         }
         */
         /*
-        LinkedList<Account> rsl = this.users.get(usr).stream().filter(
-                acc -> acc.getRequisite().equals(requisite)
-        ).collect(Collectors.toCollection(LinkedList::new));
-        return rsl.getFirst();
-        */
         List<Account> rsl = this.users.get(usr).stream().filter(
                 acc -> acc.getRequisite().equals(requisite)
         ).collect(Collectors.toList());
         for (Account acc : rsl) return acc;
         return null;
+        */
+        LinkedList<Account> rsl = this.users.get(usr).stream().filter(
+                acc -> acc.getRequisite().equals(requisite)
+        ).collect(Collectors.toCollection(LinkedList::new));
+        return rsl.peekFirst();
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
