@@ -9,15 +9,13 @@ public class DepDescComp implements Comparator<String> {
         String[] as2 = o2.split("/");
         int len = Math.min(as1.length, as2.length);
         int rsl = 0;
-        for (int i = 0; i < len; i++) {
-            if (i == 0) {
-                rsl = as2[i].compareTo(as1[i]);
-            } else {
-                rsl = as1[i].compareTo(as2[i]);
-            }
-            if (rsl != 0) break;
+        rsl = as2[0].compareTo(as1[0]);
+        if (rsl != 0) return rsl;
+        for (int i = 1; i < len; i++) {
+            rsl = as1[i].compareTo(as2[i]);
+            if (rsl != 0) return rsl;
         }
-        if (rsl == 0) rsl = as1.length - as2.length;
+        rsl = as1.length - as2.length;
         return rsl;
     }
 }
