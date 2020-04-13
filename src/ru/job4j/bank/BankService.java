@@ -1,6 +1,7 @@
 package ru.job4j.bank;
 
 import java.util.*;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -26,6 +27,12 @@ public class BankService {
             if (usr.getPassport().equals(passport)) return usr;
         }
         */
+        /*
+        LinkedList<User> rsl = this.users.keySet().stream().filter(
+                usr -> usr.getPassport().equals(passport)
+        ).collect(Collectors.toCollection(LinkedList::new));
+        return rsl.getFirst();
+        */
         List<User> rsl = this.users.keySet().stream().filter(
                 usr -> usr.getPassport().equals(passport)
         ).collect(Collectors.toList());
@@ -41,9 +48,15 @@ public class BankService {
             if (acc.getRequisite().equals(requisite)) return acc;
         }
         */
+        /*
+        LinkedList<Account> rsl = this.users.get(usr).stream().filter(
+                acc -> acc.getRequisite().equals(requisite)
+        ).collect(Collectors.toCollection(LinkedList::new));
+        return rsl.getFirst();
+        */
         List<Account> rsl = this.users.get(usr).stream().filter(
                 acc -> acc.getRequisite().equals(requisite)
-                ).collect(Collectors.toList());
+        ).collect(Collectors.toList());
         for (Account acc : rsl) return acc;
         return null;
     }
