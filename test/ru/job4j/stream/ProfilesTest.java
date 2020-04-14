@@ -35,10 +35,8 @@ public class ProfilesTest {
 
         Profiles prs = new Profiles();
 
-        List<Address> rsl = prs.collect(Arrays.asList(pr1, pr2, pr3, pr4));
-        Comparator<Address> compByCity = (a1, a2) -> a1.getCity().compareTo(a2.getCity());
-        rsl.sort(compByCity);
-        rsl = rsl.stream().distinct().collect(Collectors.toList());
+        List<Address> rsl = prs.collectDistinctByCity(Arrays.asList(pr1, pr2, pr3, pr4));
+
         List<Address> exp = Arrays.asList(adr3, adr1, adr2);
 
         assertThat(rsl, is(exp));
