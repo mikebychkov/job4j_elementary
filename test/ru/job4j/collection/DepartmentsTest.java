@@ -27,55 +27,67 @@ public class DepartmentsTest {
 
     @Test
     public void test1_Fill_Asc() {
-        List<String> list = new ArrayList<>();
-        list.add("K1/SK1");
-        list.add("K1/SK2");
-        list.add("K1/SK1/SSK1");
-        list.add("K1/SK1/SSK2");
-        list.add("K2");
-        list.add("K2/SK1/SSK1");
-        list.add("K2/SK1/SSK2");
+        List<String> list = new ArrayList<>(
+                List.of(
+                        "K1/SK1",
+                        "K1/SK2",
+                        "K1/SK1/SSK1",
+                        "K1/SK1/SSK2",
+                        "K2",
+                        "K2/SK1/SSK1",
+                        "K2/SK1/SSK2"
+                )
+        );
 
         list = Departments.fillGaps(list);
 
-        List<String> exp = new ArrayList<>();
-        exp.add("K1");
-        exp.add("K1/SK1");
-        exp.add("K1/SK1/SSK1");
-        exp.add("K1/SK1/SSK2");
-        exp.add("K1/SK2");
-        exp.add("K2");
-        exp.add("K2/SK1");
-        exp.add("K2/SK1/SSK1");
-        exp.add("K2/SK1/SSK2");
+        List<String> exp = new ArrayList<>(
+                List.of(
+                        "K1",
+                        "K1/SK1",
+                        "K1/SK1/SSK1",
+                        "K1/SK1/SSK2",
+                        "K1/SK2",
+                        "K2",
+                        "K2/SK1",
+                        "K2/SK1/SSK1",
+                        "K2/SK1/SSK2"
+                )
+        );
 
         assertThat(list, is(exp));
     }
 
     @Test
     public void test2_Fill_Desc() {
-        List<String> list = new ArrayList<>();
-        list.add("K1/SK1");
-        list.add("K1/SK2");
-        list.add("K1/SK1/SSK1");
-        list.add("K1/SK1/SSK2");
-        list.add("K2");
-        list.add("K2/SK1/SSK1");
-        list.add("K2/SK1/SSK2");
+        List<String> list = new ArrayList<>(
+                List.of(
+                        "K1/SK1",
+                        "K1/SK2",
+                        "K1/SK1/SSK1",
+                        "K1/SK1/SSK2",
+                        "K2",
+                        "K2/SK1/SSK1",
+                        "K2/SK1/SSK2"
+                )
+        );
 
         list = Departments.fillGaps(list);
         Departments.sortDesc(list);
 
-        List<String> exp = new ArrayList<>();
-        exp.add("K2");
-        exp.add("K2/SK1");
-        exp.add("K2/SK1/SSK1");
-        exp.add("K2/SK1/SSK2");
-        exp.add("K1");
-        exp.add("K1/SK1");
-        exp.add("K1/SK1/SSK1");
-        exp.add("K1/SK1/SSK2");
-        exp.add("K1/SK2");
+        List<String> exp = new ArrayList<>(
+                List.of(
+                        "K2",
+                        "K2/SK1",
+                        "K2/SK1/SSK1",
+                        "K2/SK1/SSK2",
+                        "K1",
+                        "K1/SK1",
+                        "K1/SK1/SSK1",
+                        "K1/SK1/SSK2",
+                        "K1/SK2"
+                )
+        );
 
         assertThat(list, is(exp));
     }
