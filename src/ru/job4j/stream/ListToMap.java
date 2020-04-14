@@ -7,16 +7,20 @@ import java.util.stream.Collectors;
 
 public class ListToMap {
 
-    public static void main(String[] args) {
-        List<Student> list = new ArrayList<>();
-        list.add(new Student("Nikolay"));
-        list.add(new Student("Kopernik"));
-        Map<String, Student> map = list.stream().distinct().collect(
+    public static Map<String, Student> convert(List<Student> list) {
+        return list.stream().distinct().collect(
                 Collectors.toMap(
                         st -> st.getName(),
                         st -> st
                 )
         );
+    }
+
+    public static void main(String[] args) {
+        List<Student> list = new ArrayList<>();
+        list.add(new Student("Nikolay"));
+        list.add(new Student("Kopernik"));
+        Map<String, Student> map = convert(list);
         System.out.println(map);
     }
 }
