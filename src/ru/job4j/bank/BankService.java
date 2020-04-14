@@ -34,10 +34,15 @@ public class BankService {
         for (User usr : rsl) return usr;
         return null;
         */
+        /*
         LinkedList<User> rsl = this.users.keySet().stream().filter(
                 usr -> usr.getPassport().equals(passport)
         ).collect(Collectors.toCollection(LinkedList::new));
         return rsl.peekFirst();
+        */
+        return this.users.keySet().stream().filter(
+                usr -> usr.getPassport().equals(passport)
+        ).findFirst().orElse(null);
     }
 
     public Account findByRequisite(String passport, String requisite) {
@@ -55,10 +60,15 @@ public class BankService {
         for (Account acc : rsl) return acc;
         return null;
         */
+        /*
         LinkedList<Account> rsl = this.users.get(usr).stream().filter(
                 acc -> acc.getRequisite().equals(requisite)
         ).collect(Collectors.toCollection(LinkedList::new));
         return rsl.peekFirst();
+        */
+        return this.users.get(usr).stream().filter(
+                acc -> acc.getRequisite().equals(requisite)
+        ).findFirst().orElse(null);
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
