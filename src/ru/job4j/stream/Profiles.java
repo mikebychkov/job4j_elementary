@@ -12,9 +12,9 @@ public class Profiles {
     }
 
     public List<Address> collectDistinctByCity(List<Profile> profiles) {
-        List<Address> rsl = collect(profiles);
         Comparator<Address> compByCity = (a1, a2) -> a1.getCity().compareTo(a2.getCity());
-        rsl.sort(compByCity);
-        return rsl.stream().distinct().collect(Collectors.toList());
+        return profiles.stream().map(
+                pr -> pr.getAddress()
+        ).sorted(compByCity).distinct().collect(Collectors.toList());
     }
 }
