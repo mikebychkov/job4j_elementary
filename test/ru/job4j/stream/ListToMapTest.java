@@ -15,8 +15,9 @@ public class ListToMapTest {
     public void test() {
         Student st1 = new Student("Nikolay");
         Student st2 = new Student("Kopernik");
+        Student st3 = new Student("Kopernik");
 
-        List<Student> list = Arrays.asList(st1, st2);
+        List<Student> list = Arrays.asList(st1, st2, st3);
 
         Map<String, Student> rsl = ListToMap.convert(list);
         Map<String, Student> exp = Map.of(st2.getName(), st2, st1.getName(), st1);
